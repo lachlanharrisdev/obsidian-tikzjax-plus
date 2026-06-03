@@ -7,7 +7,7 @@ import tikzjaxJs from 'inline:./tikzjax.js';
 
 
 export default class TikzjaxPlugin extends Plugin {
-	settings: TikzjaxPluginSettings;
+	settings!: TikzjaxPluginSettings;
 
 	async onload() {
 		await this.loadSettings();
@@ -54,7 +54,9 @@ export default class TikzjaxPlugin extends Plugin {
 
 	unloadTikZJax(doc: Document) {
 		const s = doc.getElementById("tikzjax");
-		s.remove();
+		if (s) {
+			s.remove();
+		}
 
 		doc.removeEventListener("tikzjax-load-finished", this.postProcessSvg);
 	}
@@ -175,7 +177,8 @@ export default class TikzjaxPlugin extends Plugin {
 
 	postProcessSvg = (e: Event) => {
 
-		const svgEl = e.target as HTMLElement;
+		const svgEl = e.target as HTMLElement | null;
+		if (!svgEl) return;
 		let svg = svgEl.outerHTML;
 
 		if (this.settings.invertColorsInDarkMode) {

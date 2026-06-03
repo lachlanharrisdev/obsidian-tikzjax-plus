@@ -13,7 +13,7 @@ if you want to view the source, please visit the github repository of this plugi
 
 const prod = (process.argv[2] === 'production');
 
-esbuild.build({
+const buildConfig = {
 	banner: {
 		js: banner,
 	},
@@ -45,7 +45,6 @@ esbuild.build({
 		'@codemirror/view',
 		...builtins],
 	format: 'cjs',
-	watch: !prod,
 	target: 'es2016',
 	logLevel: "info",
 	sourcemap: prod ? false : 'inline',
@@ -54,4 +53,10 @@ esbuild.build({
 	plugins: [
 		inlineImportPlugin()
 	]
-}).catch(() => process.exit(1));
+};
+
+if (prod) {
+	esbuild.build(buildConfig).catch(() => process.exit(1));
+} else {
+	esbuild.context(buildConfig).then((ctx) => ctx.watch()).catch(() => process.exit(1));
+}

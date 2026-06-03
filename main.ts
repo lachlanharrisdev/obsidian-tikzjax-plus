@@ -152,26 +152,29 @@ export default class TikzjaxPlugin extends Plugin {
 	}
 
 
-	optimizeSVG(svg: string) {
-		// Optimize the SVG using SVGO
-		// Fixes misaligned text nodes on mobile
-
-		return optimize(svg, {plugins:
-			[
+	optimizeSVG(svg: string): string {
+		const result = optimize(svg, {
+			plugins: [
 				{
-					name: 'preset-default',
+					name: "preset-default",
 					params: {
 						overrides: {
-							// Don't use the "cleanupIDs" plugin
-							// To avoid problems with duplicate IDs ("a", "b", ...)
-							// when inlining multiple svgs with IDs
 							cleanupIDs: false
 						}
 					}
 				}
 			]
-		// @ts-ignore
-		}).data;
+		});
+
+		if (result && "data" in result) {
+			return result.data;
+		}
+
+		if (result && "error" in result) {
+			throw new Error(String(result.error));
+		}
+
+		throw new Error("Unexpected SVGO result");
 	}
 
 

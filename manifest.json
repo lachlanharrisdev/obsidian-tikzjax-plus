@@ -3,7 +3,7 @@
 	"name": "TikZJax Plus",
 	"version": "0.5.2",
 	"minAppVersion": "0.12.0",
-	"description": "A community fork of the plugin to render LaTeX and TikZ diagrams in your notes",
+	"description": "Render LaTeX & TikZ diagrams directly in your notes.",
 	"author": "Lachlan Harris",
 	"authorUrl": "https://github.com/lachlanharrisdev",
 	"isDesktopOnly": false

@@ -1,8 +1,8 @@
 <img width=275 align="right" src="./imgs/screenshot.png">
 
-# Obsidian TikZJax
+# Obsidian TikZJax Plus
 
-A plugin for Obsidian that lets you render LaTeX and TikZ diagrams in your notes.
+A community-maintained fork for the original plugin for Obsidian that lets you render LaTeX and TikZ diagrams in your notes.
 
 You can render graphs, figures, circuits, chemical diagrams, commutative diagrams, and more.
 
@@ -170,8 +170,19 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 ````
 
 ## Contributing
-Contributions are welcome! For information on building Tikzjax, have a look at the [contributing guide](https://github.com/artisticat1/obsidian-tikzjax/issues/68), courtesy of [@thecodechemist99](https://github.com/thecodechemist99).
+
+The repository is in its early stages of being forked and is not yet accepting external contributors. If you're highly willing, please reach out! Find contact details on my website, https://www.lachlanharris.dev
 
 ## Acknowledgements
+
+The most obvious and considerable acknowledgement goes to the original [obsidian-tkzjax](https://github.com/artisticat1/obsidian-tikzjax) repository, and its author(s) [@artisticat1](https://github.com/artisticat1) & [@N1RX](https://github.com/N1RX)
+
 This plugin would not be possible without [TikZJax](https://github.com/kisonecat/tikzjax) by [@kisonecat](https://github.com/kisonecat)! In particular, it uses
 [@drgrice1's fork](https://github.com/drgrice1/tikzjax/tree/ww-modifications) that adds some additional features.
+
+---
+
+> Copyright (c) 2022-2025 @artistacat1.
+> Copyright (c) 2026 Lachlan Harris <@lachlanharrisdev>.
+>
+> Licensed under the MIT license.
